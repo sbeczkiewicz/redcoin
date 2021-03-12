@@ -50,7 +50,7 @@ class Chain {
     chain: Block[];
 
     constructor() {
-        this.chain = [new Block("", new Transaction(100, 'genesis', 'satoshi'))];
+        this.chain = [new Block("", new Transaction(1000, 'moneyPrinter', 'Steve'))];
     }
 
     get lastBlock() {
@@ -125,3 +125,14 @@ class Wallet {
     }
 
 }
+
+
+const Steve = new Wallet();
+const jp = new Wallet();
+const elliot = new Wallet();
+
+Steve.sendMoney(50, jp.publicKey);
+jp.sendMoney(23, elliot.publicKey);
+elliot.sendMoney(5, jp.publicKey);
+
+console.log(Chain.instance)
